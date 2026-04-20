@@ -1,1 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXTIN-TECH BOGOTÁ | Bio-Security</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --dark-green: #0a2e0a;
+            --black: #020502;
+            --glow: 0 0 20px rgba(57, 255, 20, 0.6);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--black);
+            /* Fondo de nebulosa verde animado */
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(57, 255, 20, 0.15) 0%, transparent 80%),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png'),
+                linear-gradient(135deg, #020502 0%, #0a240a 100%);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Efecto de partículas de fondo (Simulado con sombra) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.3;
+            z-index: -1;
+            animation: moveBg 60s linear infinite;
+        }
+
+        @keyframes moveBg {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 2px solid var(--neon-green);
+            box-shadow: var(--glow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: var(--glow);
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            padding: 50px 8%;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+
+        .hero-text span {
+            color: var(--neon-green);
+            display: block;
+        }
+
+        .hero-img-container {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Imagen de Extintor con Glow Verde */
+        .main-extintor {
+            width: 80%;
+            max-width: 450px;
+            filter: drop-shadow(0 0 40px var(--neon-green)) hue-rotate(90deg); /* Cambia el color a verde */
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(2deg); }
+        }
+
+        /* Botón Futurista */
+        .cta-btn {
+            background: rgba(0, 255, 0, 0.1);
+            color: var(--neon-green);
+            padding: 20px 40px;
+            border: 2px solid var(--neon-green);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+            box-shadow: var(--glow);
+            margin-top: 30px;
+        }
+
+        .cta-btn:hover {
+            background: var(--neon-green);
+            color: black;
+            box-shadow: 0 0 50px var(--neon-green);
+            transform: scale(1.05);
+        }
+
+        /* Grid de Servicios Hexagonales */
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 80px 5%;
+            background: rgba(0, 20, 0, 0.4);
+        }
+
+        .service-hex {
+            width: 300px;
+            padding: 50px 30px;
+            background: rgba(10, 30, 10, 0.8);
+            border: 1px solid var(--neon-green);
+            text-align: center;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            transition: 0.5s;
+        }
+
+        .service-hex:hover {
+            background: var(--neon-green);
+            color: black;
+            transform: translateY(-15px);
+        }
+
+        .service-hex:hover i {
+            color: black;
+        }
+
+        .service-hex i {
+            font-size: 3rem;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+        }
+
+        /* Panel de Ubicación Estilo Radar */
+        .radar-panel {
+            margin: 50px 8%;
+            padding: 40px;
+            border: 2px dashed var(--neon-green);
+            background: rgba(0, 255, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        .radar-map {
+            width: 250px;
+            height: 150px;
+            background: radial-gradient(circle, var(--neon-green) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border: 1px solid var(--neon-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .radar-map::after {
+            content: "";
+            position: absolute;
+            width: 100%; height: 2px;
+            background: var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--dark-green);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--neon-green);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; }
+            .services-grid { flex-direction: column; align-items: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-biohazard"></i> EXTIN-TECH</div>
+        <div style="font-size: 0.9rem;">ESTADO DEL SISTEMA: <span style="color: var(--neon-green); animation: blink 1s infinite;">● ONLINE</span></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>PROTECCIÓN <span>ULTRA-VERDE</span> DEL FUTURO</h1>
+            <p>Recarga de extintores en Bogotá con tecnología de supresión de incendios avanzada. Eficiencia absoluta para tu local o empresa.</p>
+            <button class="cta-btn">¡SOLICITAR RECARGA URGENTE!</button>
+        </div>
+        <div class="hero-img-container">
+            <img src="https://cdn-icons-png.flaticon.com/512/785/785116.png" class="main-extintor" alt="Extintor Bio-Tech">
+        </div>
+    </section>
+
+    <section class="services-grid">
+        <div class="service-hex">
+            <i class="fas fa-truck-loading"></i>
+            <h3>ENTREGA ECO-RÁPIDA</h3>
